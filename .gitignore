@@ -1,1 +1,6 @@
 *.txt
+*.exe
+*.lib
+*.obj
+*.pdb
+.vs/*
