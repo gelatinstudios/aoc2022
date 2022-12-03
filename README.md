@@ -15,7 +15,7 @@ The idea is that I stop coding when I've got the answers for *my* input, so they
 
 ## Why C99?
 
-I use tcc to turn C into sort-of a scripting language. It can compile C code in memory and execute it without producing an exe file. Using Windows' ftype and assoc to set the shell to use tcc to run .c files, I can run each day's problem like this:
+I use [tcc](https://bellard.org/tcc/) to turn C into sort-of a scripting language. It can compile C code in memory and execute it without producing an exe file. Using Windows' ftype and assoc to set the shell to use tcc to run .c files, I can run each day's problem like this:
 
 ```
 1.c < input_1.txt
