@@ -56,7 +56,7 @@ int normalize_s_and_e(int c) {
     return c;
 }
 
-int a_star(iv2 start, iv2 *ends, int end_count, int backwards) {
+int a_star(iv2 start, int end_letter, iv2 *ends, int end_count, int backwards) {
     static iv2 open_set[N*N] = {0};
     open_set[0] = start;
     int open_set_count = 1;
@@ -83,14 +83,7 @@ int a_star(iv2 start, iv2 *ends, int end_count, int backwards) {
         }
         
         iv2 current = open_set[lowest_index];
-        int found = 0;
-        for (int i = 0; i < end_count; i++) {
-            if (iv2_eq(current, ends[i])) {
-                found = 1;
-                break;
-            }
-        }
-        if (found) {
+        if (grid[IV2Index(current)] == end_letter) {
             int count = 0;
             while (!iv2_eq(current, start)) {
                 current = came_from[IV2Index(current)];
@@ -161,7 +154,7 @@ int main(void) {
     }
     
     iv2 ends1[] = {end};
-    printf("%d\n", a_star(start, ends1, 1, 0));
+    printf("%d\n", a_star(start, 'E', ends1, 1, 0));
     
     static iv2 ends2[N*N];
     int end_count = 0;
@@ -174,5 +167,5 @@ int main(void) {
         }
     }
     
-    printf("%d\n", a_star(end, ends2, end_count, 1));
+    printf("%d\n", a_star(end, 'a', ends2, end_count, 1));
 }
