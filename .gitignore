@@ -5,3 +5,4 @@
 *.pdb
 .vs/*
 *.bat
+*.ilk
